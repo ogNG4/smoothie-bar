@@ -1,0 +1,15 @@
+@import "@/styles/variables.scss";
+
+.rating {
+    font-size: 1.5rem;
+  
+    svg {
+      &.filledStar {
+        color: rgb(243, 221, 93);
+      }
+  
+      &.emptyStar {
+        color: $dark-gray;
+      }
+    }
+  }

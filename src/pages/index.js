@@ -25,12 +25,15 @@ function HomePage() {
         setSmoothies(data);
         setError(null);
       }
+
     };
 
     fetchSmoothies();
   }, []);
 
   return (
+    <>
+    {error && <p className="error">{error}</p>}
     <div className="smoothies-list">
       {smoothies &&
         smoothies.map((smoothie) => (
@@ -41,6 +44,7 @@ function HomePage() {
           />
         ))}
     </div>
+    </>
   );
 }
 

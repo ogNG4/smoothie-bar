@@ -16,6 +16,11 @@ function CreateSmoothie() {
   const submitHandler = async (event) => {
     event.preventDefault();
 
+    if (!title || !method || !rating) {
+      setFormError("Please fill in all fields");
+      return;
+    }
+
     const { data, error } = await supabase
       .from("smoothies")
       .insert([{ title, method, rating }])
@@ -25,6 +30,7 @@ function CreateSmoothie() {
   };
 
   return (
+    <>
     <form className={styles.form} onSubmit={submitHandler}>
       <label htmlFor="title">Title:</label>
       <input
@@ -51,6 +57,8 @@ function CreateSmoothie() {
         Submit
       </button>
     </form>
+    {formError && <p className={styles.error}>{formError}</p>}
+    </>
   );
 }
 

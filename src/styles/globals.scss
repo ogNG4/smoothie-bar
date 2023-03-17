@@ -17,17 +17,29 @@ button {
 }
 
 .smoothies-list {
-  max-width: 1400px;
+  max-width: 1800px;
 
   margin: 0 auto;
   padding: 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
+
 }
 
-@media only screen and (min-width:1000px){
+.error{
+ 
+    margin: 1rem auto;
+    font-size: 2rem;
+    background: rgb(245, 66, 66);
+    width: max-content;    
+    padding: .3rem 1rem;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+@media only screen and (min-width:1200px){
     .smoothies-list{
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }

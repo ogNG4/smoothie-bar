@@ -1,4 +1,4 @@
-import {supabase} from '../../lib/supabaseClient';
+import { supabase } from "../../lib/supabaseClient";
 
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import Link from "next/link";
@@ -8,21 +8,15 @@ import Rating from "../ui/Rating";
 import styles from "./SmoothieCard.module.scss";
 
 function SmoothieCard({ smoothie, onDelete }) {
+  const deleteHandler = async () => {
+   await supabase
+      .from("smoothies")
+      .delete()
+      .eq("id", smoothie.id)
+      .select();
 
-   
-
-
-    const deleteHandler = async () => {
-        const { data, error } = await supabase
-        .from("smoothies")
-        .delete()
-        .eq("id", smoothie.id)
-        .select()
-
-        onDelete(smoothie.id);
-
-    }
-
+    onDelete(smoothie.id);
+  };
 
   return (
     <div className={styles.card}>
@@ -32,9 +26,9 @@ function SmoothieCard({ smoothie, onDelete }) {
         <Rating rating={smoothie.rating} />
       </div>
       <div className={styles.buttons}>
-        <button className={styles.button}>
+        <Link href={`/${smoothie.id}`} className={styles.button}>
           <AiFillEdit />
-        </button>
+        </Link>
         <button className={styles.button} onClick={deleteHandler}>
           <AiFillDelete />
         </button>

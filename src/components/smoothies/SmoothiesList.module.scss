@@ -14,17 +14,26 @@
   margin: 2rem 0;
 }
 
-.select {
-  margin-top: 1rem;
+.search-bar{
+  width: 100%;
   text-align: center;
-  width: 60%;
-  max-width: 400px;
-  height: 2.2rem;
-  font-family: "Poppins";
-  border-radius: 10px;
+
+}
+
+.select, .search  {
+  font-family: 'Poppins';
+  background: $light-transparent-black;
+  color: white;
+  border: none;
+  outline: none;
+  height: 2rem;
+  font-size: 1rem;
+  padding: 0 .5rem;
 
   
 }
+
+
 
 @include media-query-768 {
   .smoothies-list {
@@ -36,10 +45,7 @@
     gap: 40px;
   }
 
-  .select{
-    height: 3rem;
-    font-size: 1.6rem;
-  }
+
 }
 
 

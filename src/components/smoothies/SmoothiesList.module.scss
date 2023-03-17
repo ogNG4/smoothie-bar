@@ -19,12 +19,11 @@
   text-align: center;
   width: 60%;
   max-width: 400px;
-  height: 2rem;
+  height: 2.2rem;
   font-family: "Poppins";
   border-radius: 10px;
-  background: $light-transparent-black;
-  color: white;
-  font-size: 1rem;
+
+  
 }
 
 @include media-query-768 {
@@ -35,6 +34,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
+  }
+
+  .select{
+    height: 3rem;
+    font-size: 1.6rem;
   }
 }
 

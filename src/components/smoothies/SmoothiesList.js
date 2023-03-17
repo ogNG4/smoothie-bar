@@ -1,5 +1,3 @@
-import Select from "react-select";
-
 import { supabase } from "../../lib/supabaseClient";
 import { useState, useEffect } from "react";
 
@@ -74,21 +72,18 @@ function SmoothiesList() {
 
       {error && <p className="error">{error}</p>}
       <div className={styles["smoothies-list"]}>
-        {filteredSmoothies && filteredSmoothies.length > 0
-          ? filteredSmoothies.map((smoothie) => (
-              <SmoothieCard
-                key={smoothie.id}
-                smoothie={smoothie}
-                onDelete={deleteHandler}
-              />
-            ))
-          : smoothies.map((smoothie) => (
-              <SmoothieCard
-                key={smoothie.id}
-                smoothie={smoothie}
-                onDelete={deleteHandler}
-              />
-            ))}
+        {(filteredSmoothies || smoothies) &&
+        (filteredSmoothies || smoothies).length > 0 ? (
+          (filteredSmoothies || smoothies).map((smoothie) => (
+            <SmoothieCard
+              key={smoothie.id}
+              smoothie={smoothie}
+              onDelete={deleteHandler}
+            />
+          ))
+        ) : (
+          <p className={styles.warning}>No matching smoothies found.</p>
+        )}
       </div>
     </div>
   );

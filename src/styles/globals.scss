@@ -16,49 +16,26 @@ button {
   cursor: pointer;
 }
 
-.home {
-  width: 100%;
-  position: relative;
-}
-.smoothies-list {
-  max-width: 1800px;
+// .home {
+//   width: 100%;
+//   position: relative;
+// }
 
-  margin: 2rem auto;
-  padding: 2rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
 
-.error {
-  margin: 0 auto;
-  font-size: 2rem;
-  background: rgb(245, 66, 66);
-  width: max-content;
-  padding: 0.3rem 1rem;
-  color: rgb(255, 255, 255);
-  border-radius: 10px;
-}
+// .error {
+//   margin: 0 auto;
+//   font-size: 2rem;
+//   background: rgb(245, 66, 66);
+//   width: max-content;
+//   padding: 0.3rem 1rem;
+//   color: rgb(255, 255, 255);
+//   border-radius: 10px;
+// }
 
-@media only screen and (min-width: 1200px) {
-  .smoothies-list {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
+// @media only screen and (min-width: 1200px) {
+//   .smoothies-list {
+//     grid-template-columns: 1fr 1fr 1fr 1fr;
+//   }
+// }
 
-.select {
-  position: relative;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 1rem;
-  text-align: center;
-  width: 30%;
-  max-width: 400px;
-  height: 2rem;
-  font-family: "Poppins";
-  border-radius: 10px;
-  background: $light-transparent-black;
-  color: white;
-  font-size: 1rem;
-}
+

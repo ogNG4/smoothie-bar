@@ -6,9 +6,29 @@ $light-transparent-black: rgba(0,0,0,0.6);
 $transparent-black: rgba(0,0,0,0.7);
 
 
-// @mixin media-800{
-//     @media only screen and(min-width: 865px){
-//         @content;
-//     }
-
-// }
+@mixin media-query-1400 {
+    @media (min-width: 1400px) {
+      @content;
+    }
+  }
+  @mixin media-query-1200 {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+  @mixin media-query-1270 {
+    @media (min-width: 1270px) {
+      @content;
+    }
+  }
+  @mixin media-query-1024 {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  }
+  @mixin media-query-768 {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+  

@@ -3,13 +3,12 @@
 .card{
     background: $main-text-color;
     color: $dark-gray;
-    width: 100%;
-    min-height: 200px;
+    width: 90%;
+    height: 15rem;
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
-
     padding: 1rem 1rem;
     position: relative;
 
@@ -24,7 +23,7 @@
 .rating{
     position: absolute;
     bottom: 6px;
-    
+
 
 }
 
@@ -51,5 +50,11 @@
 
     &:hover{
         opacity: 1;
+    }
+}
+
+@include media-query-768{
+    .card{
+        width: 23rem;
     }
 }

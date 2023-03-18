@@ -1,4 +1,4 @@
-import { supabase } from "../../lib/supabaseClient";
+import { supabase } from "../../config/supabaseClient";
 
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import Link from "next/link";
@@ -9,11 +9,7 @@ import styles from "./SmoothieCard.module.scss";
 
 function SmoothieCard({ smoothie, onDelete }) {
   const deleteHandler = async () => {
-   await supabase
-      .from("smoothies")
-      .delete()
-      .eq("id", smoothie.id)
-      .select();
+    await supabase.from("smoothies").delete().eq("id", smoothie.id).select();
 
     onDelete(smoothie.id);
   };

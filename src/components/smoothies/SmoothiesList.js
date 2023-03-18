@@ -1,4 +1,4 @@
-import { supabase } from "../../lib/supabaseClient";
+import { supabase } from "../../config/supabaseClient";
 import { useState, useEffect } from "react";
 
 import styles from "./SmoothiesList.module.scss";

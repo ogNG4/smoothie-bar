@@ -1,4 +1,4 @@
-import { supabase } from "../../lib/supabaseClient";
+import { supabase } from "../../config/supabaseClient";
 import Form from "../ui/Form";
 
 import { useRouter } from "next/router";

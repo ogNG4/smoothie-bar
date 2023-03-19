@@ -1,9 +1,9 @@
-import { supabase } from "../../config/supabaseClient";
+import { supabase } from "../../../config/supabaseClient";
 
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import Link from "next/link";
 
-import Rating from "../ui/Rating";
+import Rating from "../../ui/rating/Rating";
 
 import styles from "./SmoothieCard.module.scss";
 

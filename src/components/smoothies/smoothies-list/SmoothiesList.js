@@ -1,9 +1,9 @@
-import { supabase } from "../../config/supabaseClient";
+import { supabase } from "../../../config/supabaseClient";
 import { useState, useEffect } from "react";
 
 import styles from "./SmoothiesList.module.scss";
 
-import SmoothieCard from "./SmoothieCard";
+import SmoothieCard from "../smoothie-detail/SmoothieCard";
 function SmoothiesList() {
   const [error, setError] = useState(null);
   const [smoothies, setSmoothies] = useState(null);

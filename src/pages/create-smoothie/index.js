@@ -1,6 +1,6 @@
-import CreateSmoothie from "@/components/smoothies/CreateSmoothie";
-function CreateSmoothiePage(){
-    return(<CreateSmoothie/>)
+import CreateSmoothie from "@/components/smoothies/forms/CreateSmoothie";
+function CreateSmoothiePage() {
+  return <CreateSmoothie />;
 }
 
 export default CreateSmoothiePage;

@@ -12,11 +12,11 @@ function Navbar() {
         </h1>
       </div>
       <div className={styles.links}>
-        <div className={styles.link}>
-          <Link href="/">Smoothies🫐</Link>
+        <div className={styles.link} >
+          <Link aria-label="all smoothies" href="/">Smoothies🫐</Link>
         </div>
         <div className={styles.link}>
-          <Link href="/create-smoothie">Create Smoothie🍌</Link>
+          <Link aria-label="create smoothie" href="/create-smoothie">Create Smoothie🍌</Link>
         </div>
       </div>
     </nav>

@@ -22,10 +22,10 @@ function SmoothieCard({ smoothie, onDelete }) {
         <Rating rating={smoothie.rating} />
       </div>
       <div className={styles.buttons}>
-        <Link href={`/${smoothie.id}`} className={styles.button}>
+        <Link href={`/${smoothie.id}`} className={styles.button} aria-label="update smoothie">
           <AiFillEdit />
         </Link>
-        <button className={styles.button} onClick={deleteHandler}>
+        <button className={styles.button} onClick={deleteHandler} aria-label="delete smoothie" >
           <AiFillDelete />
         </button>
       </div>

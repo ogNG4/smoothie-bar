@@ -29,15 +29,16 @@ function Form({
         />
 
         <label htmlFor="">Rating:</label>
-        <input
-          type="number"
-          min="1"
-          max="5"
-          value={rating}
-          onChange={(event) => setRating(event.target.value)}
-        />
 
-        <button type="submit" className={styles.button}>
+        <select onChange={(event) => setRating(event.target.value)} value={rating} >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+        </select>
+
+        <button type="submit" className={styles.button} aria-label="submit">
           Submit
         </button>
       </form>

@@ -3,7 +3,7 @@ import Form from "../../ui/form/Form";
 
 import { useRouter } from "next/router";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function CreateSmoothie() {
   const router = useRouter();

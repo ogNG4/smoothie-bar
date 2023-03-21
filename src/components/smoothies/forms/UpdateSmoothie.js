@@ -1,8 +1,8 @@
-import { supabase } from "../../config/supabaseClient";
+import { supabase } from "../../../config/supabaseClient";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-import Form from "../ui/form/Form";
+import Form from "../../ui/form/Form";
 
 function UpdateSmoothie() {
   const router = useRouter();

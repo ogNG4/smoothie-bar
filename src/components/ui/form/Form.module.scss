@@ -13,19 +13,28 @@
   gap: 10px;
 
   input,
-  textarea {
+  textarea, 
+  select {
     width: 80%;
     border-radius: 10px;
     border: none;
+    outline: none;
     padding: 0 0.5rem;
   }
-  input {
+  input,select {
     height: 2rem;
   }
 
   textarea {
     height: 7rem;
   }
+
+  select{
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+
 }
 
 .button {

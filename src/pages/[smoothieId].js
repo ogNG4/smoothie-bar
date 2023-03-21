@@ -5,10 +5,10 @@ function SmoothieUpdatePage(){
 
     return(
         <>
-        <Head>
+        {/* <Head>
           <title>Update Smoothie</title>
           <meta  name="description" content="Update your smoothie!"/>
-        </Head>
+        </Head> */}
         <UpdateSmoothie />
       </>
     )

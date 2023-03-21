@@ -10,10 +10,10 @@ function HomePage() {
 
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>Smoothie Bar</title>
         <meta  name="description" content="Find a lot great smoothe recipes or create your own!"/>
-      </Head>
+      </Head> */}
       <SmoothiesList />
     </>
   );

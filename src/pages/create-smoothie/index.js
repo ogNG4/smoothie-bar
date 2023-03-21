@@ -4,10 +4,10 @@ import CreateSmoothie from "@/components/smoothies/forms/CreateSmoothie";
 function CreateSmoothiePage() {
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>Create Smoothie</title>
         <meta  name="description" content="Create your delicoius smoothie!"/>
-      </Head>
+      </Head> */}
       <CreateSmoothie />
     </>
   );

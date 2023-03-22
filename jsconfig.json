@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/smoothies/*": ["components/smoothies/*"],
+      "@/layout/*": ["components/ui/layout/*"],
+      "@/rating/*": ["components/ui/rating/*"],
+      "@/form/*": ["components/ui/form/*"],
     }
   }
 }

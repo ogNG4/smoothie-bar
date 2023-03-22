@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import UpdateSmoothie from "../components/smoothies/forms/UpdateSmoothie";
+import UpdateSmoothie from "@/smoothies/forms/UpdateSmoothie";
 function SmoothieUpdatePage(){
 
     return(

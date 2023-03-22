@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import CreateSmoothie from "@/components/smoothies/forms/CreateSmoothie";
+import CreateSmoothie from "@/smoothies/forms/CreateSmoothie";
 function CreateSmoothiePage() {
   return (
     <>

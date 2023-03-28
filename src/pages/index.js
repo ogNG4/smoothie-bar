@@ -1,22 +1,38 @@
 import Head from "next/head";
 
-import { supabase } from "../config/supabaseClient";
-import { useState, useEffect } from "react";
+import { getSmoothies } from "utils/getSmoothies";
 
 
 import SmoothiesList from "@/smoothies/smoothies-list/SmoothiesList";
-function HomePage() {
-  //
+
+export default function HomePage({ smoothies }) {
 
   return (
     <>
       <Head>
         <title>Smoothie Bar</title>
-        <meta  name="description" content="Find a lot great smoothe recipes or create your own!"/>
+        <meta
+          name="description"
+          content="Find a lot great smoothie recipes or create your own!"
+        />
       </Head>
-      <SmoothiesList />
+      <SmoothiesList smoothies={smoothies}  />
     </>
   );
 }
 
-export default HomePage;
+export async function getServerSideProps() {
+  const { data, error } = await getSmoothies("created_at"); 
+  if (error) {
+    console.log(error);
+    return {
+      notFound: true,
+    };
+  }
+  return {
+    props: {
+      smoothies: data,
+    
+    },
+  };
+}

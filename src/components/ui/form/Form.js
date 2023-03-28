@@ -15,7 +15,7 @@ function Form({
       <form className={styles.form} onSubmit={onSubmit}>
         <label htmlFor="title">Title:</label>
         <input
-          maxlength="15"
+          maxLength="15"
           type="text"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
@@ -23,7 +23,7 @@ function Form({
 
         <label htmlFor="method">Method:</label>
         <textarea
-          maxlength="50"
+          maxLength="50"
           value={method}
           onChange={(event) => setMethod(event.target.value)}
         />

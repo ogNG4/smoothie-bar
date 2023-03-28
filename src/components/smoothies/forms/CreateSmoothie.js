@@ -1,16 +1,13 @@
-import { supabase } from "../../../config/supabaseClient";
-
 import { useRouter } from "next/router";
 import { useState } from "react";
-
 import Form from "@/form/Form";
+import { addSmoothie } from "../../../utils/addSmoothie";
 
 function CreateSmoothie() {
   const router = useRouter();
-
   const [title, setTitle] = useState("");
   const [method, setMethod] = useState("");
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState("");
   const [formError, setFormError] = useState(null);
 
   const submitHandler = async (event) => {
@@ -21,24 +18,28 @@ function CreateSmoothie() {
       return;
     }
 
-    const { data, error } = await supabase
-      .from("smoothies")
-      .insert([{ title, method, rating }])
-      .select();
-
-    router.push("/");
+    try {
+      await addSmoothie(title, method, rating);
+      router.push("/");
+    } catch (error) {
+      setFormError(error.message);
+    }
   };
 
   return (
+    <>
     <Form
       onSubmit={submitHandler}
       title={title}
       method={method}
-      rating={rating}
+      rating={rating} 
       setRating={setRating}
       setTitle={setTitle}
       setMethod={setMethod}
     />
+    <p className="center">{formError}</p>
+    </>
+    
   );
 }
 

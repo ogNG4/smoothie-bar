@@ -1,19 +1,36 @@
-import { supabase } from "../../../config/supabaseClient";
 import { useState, useEffect } from "react";
-
 import styles from "./SmoothiesList.module.scss";
-
 import SmoothieCard from "../smoothie-detail/SmoothieCard";
-function SmoothiesList() {
+
+import { getSmoothies } from "utils/getSmoothies";
+import { deleteSmoothie } from "utils/deleteSmoothie";
+
+function SmoothiesList(props) {
+  const { smoothies: initialSmoothies } = props;
   const [error, setError] = useState(null);
-  const [smoothies, setSmoothies] = useState(null);
   const [orderBy, setOrderBy] = useState("created_at");
   const [filteredSmoothies, setFilteredSmoothies] = useState(null);
+  const [smoothies, setSmoothies] = useState(initialSmoothies);
 
-  const deleteHandler = (id) => {
-    setSmoothies((prevSmoothies) => {
-      return prevSmoothies.filter((smoothie) => smoothie.id !== id);
-    });
+  useEffect(() => {
+    setSmoothies(initialSmoothies);
+  }, [initialSmoothies]);
+
+  const deleteHandler = async (id) => {
+    try {
+      await deleteSmoothie(id);
+      const { data, error } = await getSmoothies(orderBy);
+      if (error) {
+        setError(error.message);
+        return;
+      }
+      setSmoothies(data);
+      setFilteredSmoothies((prevFilteredSmoothies) =>
+        prevFilteredSmoothies?.filter((smoothie) => smoothie.id !== id)
+      );
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   const searchHandler = (event) => {
@@ -29,26 +46,6 @@ function SmoothiesList() {
     setFilteredSmoothies(filtered);
   };
 
-  useEffect(() => {
-    const fetchSmoothies = async () => {
-      const { data, error } = await supabase
-        .from("smoothies")
-        .select()
-        .order(orderBy, { ascending: false });
-      if (error) {
-        setError("Could not fetch smoothies");
-        setSmoothies(null);
-        console.log(error);
-      }
-
-      if (data) {
-        setSmoothies(data);
-        setError(null);
-      }
-    };
-
-    fetchSmoothies();
-  }, [orderBy]);
 
   return (
     <div className={styles.home}>

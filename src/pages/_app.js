@@ -1,4 +1,4 @@
-import "@/styles/globals.scss";
+import "../styles/globals.scss";
 
 import Layout from "@/components/ui/layout/Layout";
 

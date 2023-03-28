@@ -6,7 +6,7 @@ export async function getSmoothies(orderBy) {
       .from("smoothies")
       .select()
       .order(orderBy, { ascending: false });
-    return { data };
+    return { data, orderBy };
   } catch (error) {
     console.log(error);
     return { error };

@@ -16,7 +16,7 @@ export default function HomePage({ smoothies }) {
           content="Find a lot great smoothie recipes or create your own!"
         />
       </Head>
-      <SmoothiesList smoothies={smoothies}  />
+      <SmoothiesList smoothies={smoothies}   />
     </>
   );
 }
@@ -32,7 +32,7 @@ export async function getServerSideProps() {
   return {
     props: {
       smoothies: data,
-    
+      
     },
   };
 }

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "./SmoothiesList.module.scss";
 import SmoothieCard from "../smoothie-detail/SmoothieCard";
-
 import { getSmoothies } from "utils/getSmoothies";
 import { deleteSmoothie } from "utils/deleteSmoothie";
 
@@ -46,6 +45,17 @@ function SmoothiesList(props) {
     setFilteredSmoothies(filtered);
   };
 
+  const handleOrderByChange = async (event) => {
+    const newOrderBy = event.target.value;
+    setOrderBy(newOrderBy);
+
+    const { data, error } = await getSmoothies(newOrderBy);
+    if (error) {
+      setError(error.message);
+      return;
+    }
+    setSmoothies(data);
+  };
 
   return (
     <div className={styles.home}>
@@ -59,7 +69,8 @@ function SmoothiesList(props) {
         <select
           name="sort"
           className={styles.select}
-          onChange={(event) => setOrderBy(event.target.value)}
+          value={orderBy}
+          onChange={handleOrderByChange}
         >
           <option value="title">Title</option>
           <option value="rating">Rating</option>

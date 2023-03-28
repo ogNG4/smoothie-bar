@@ -19,31 +19,32 @@ function SmoothieCard({ smoothie, onDelete }) {
   };
 
   return (
-    <motion.div initial={{ opacity: 0, scale: 0.5 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.5 }}>
-      <div className={styles.card}>
-        <h1>{smoothie.title}</h1>
-        <p>{smoothie.method}</p>
-        <div className={styles.rating}>
-          <Rating rating={smoothie.rating} />
-        </div>
-        <div className={styles.buttons}>
-          <Link
-            href={`/${smoothie.id}`}
-            className={styles.button}
-            aria-label="update smoothie"
-          >
-            <AiFillEdit />
-          </Link>
-          <button
-            className={styles.button}
-            onClick={deleteHandler}
-            aria-label="delete smoothie"
-          >
-            <AiFillDelete />
-          </button>
-        </div>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+      className={styles.card}
+    >
+      <h1>{smoothie.title}</h1>
+      <p>{smoothie.method}</p>
+      <div className={styles.rating}>
+        <Rating rating={smoothie.rating} />
+      </div>
+      <div className={styles.buttons}>
+        <Link
+          href={`/${smoothie.id}`}
+          className={styles.button}
+          aria-label="update smoothie"
+        >
+          <AiFillEdit />
+        </Link>
+        <button
+          className={styles.button}
+          onClick={deleteHandler}
+          aria-label="delete smoothie"
+        >
+          <AiFillDelete />
+        </button>
       </div>
     </motion.div>
   );

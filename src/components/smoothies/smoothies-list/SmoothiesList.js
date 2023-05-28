@@ -46,15 +46,15 @@ function SmoothiesList(props) {
   };
 
   const handleOrderByChange = async (event) => {
-    const newOrderBy = event.target.value;
-    setOrderBy(newOrderBy);
-
-    const { data, error } = await getSmoothies(newOrderBy);
-    if (error) {
+    try {
+      const newOrderBy = event.target.value;
+      setOrderBy(newOrderBy);
+  
+      const { data } = await getSmoothies(newOrderBy);
+      setSmoothies(data);
+    } catch (error) {
       setError(error.message);
-      return;
     }
-    setSmoothies(data);
   };
 
   return (

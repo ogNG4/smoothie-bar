@@ -10,12 +10,16 @@ import styles from "./SmoothieCard.module.scss";
 
 function SmoothieCard({ smoothie, onDelete }) {
   const deleteHandler = async () => {
-    const result = await deleteSmoothie(smoothie.id);
-    if (result.error) {
-      console.log(result.error);
-      return;
+    try {
+      const result = await deleteSmoothie(smoothie.id);
+      if (result.error) {
+        console.log(result.error);
+        return;
+      }
+      onDelete(smoothie.id);
+    } catch (error) {
+      console.log(error.message);
     }
-    onDelete(smoothie.id);
   };
 
   return (

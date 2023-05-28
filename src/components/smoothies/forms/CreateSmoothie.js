@@ -1,45 +1,37 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Form from "@/form/Form";
-import { addSmoothie } from "../../../utils/addSmoothie";
+import { submitSmoothie } from "../../../utils/addSmoothie";
 
 function CreateSmoothie() {
   const router = useRouter();
-  const [title, setTitle] = useState("");
-  const [method, setMethod] = useState("");
-  const [rating, setRating] = useState("");
+  const [formData, setFormData] = useState({ title: "", method: "", rating: "" });
   const [formError, setFormError] = useState(null);
 
-  const submitHandler = async (event) => {
-    event.preventDefault();
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
 
-    if (!title || !method || !rating) {
-      setFormError("Please fill in all fields");
-      return;
-    }
+  const handleSubmit = async (event) => {
+    const result = await submitSmoothie(event, formData, setFormError);
 
-    try {
-      await addSmoothie(title, method, rating);
+    if (result) {
       router.push("/");
-    } catch (error) {
-      setFormError(error.message);
     }
   };
 
   return (
     <>
-    <Form
-      onSubmit={submitHandler}
-      title={title}
-      method={method}
-      rating={rating} 
-      setRating={setRating}
-      setTitle={setTitle}
-      setMethod={setMethod}
-    />
-    <p className="center">{formError}</p>
+      <Form
+        onSubmit={handleSubmit}
+        title={formData.title}
+        method={formData.method}
+        rating={formData.rating}
+        onChange={handleChange}
+      />
+      <p className="center">{formError}</p>
     </>
-    
   );
 }
 
